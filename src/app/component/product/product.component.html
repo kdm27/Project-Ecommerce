@@ -1,0 +1,60 @@
+<!-- <p>product works!</p> -->
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+      <div class="item">
+        <a (click)="filter('')">
+          <img style="width:62px; height:55px; margin-top: 5px;" src="assets/all product.jpeg" alt="">
+          <h6>all products</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('electronics')">
+          <img style="width:62px; height:55px; margin-top: 5px;" src="assets/electronics image.jpeg" alt="">
+          <h6>electronics</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('fashion')" >
+          <img style="width:62px; height:55px; margin-top: 5px;" src="assets/fashion.jpeg" alt="" >
+          <h6>fashion</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('jewelery')">
+          <img style="width:62px; height:55px; margin-top: 5px;" src="assets/jwellary image.jpeg" alt="">
+          <h6>Jwellary</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container" >
+    <div class="row">
+      <!-- <ng-container *ngIf="searchkey =='{{item.title && item.description}}'"> -->
+        <ng-container  *ngFor="let item of filterCategory  | filter: searchkey:'title'">
+          <div class="card col-md-3">
+            <img src="{{item.image}}" alt="">
+            <h5 style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" >{{item.title}}</h5>
+            <p style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+            <p><strong>Price:</strong>₹{{item.price}}</p>
+            <button class="btn btn-primary" (click)="addtocart(item)">Add cart</button>
+          </div>
+        </ng-container>
+  
+      <!-- </ng-container> -->
+      <!-- <ng-container *ngIf="searchkey ! =='{{item.title && item.description }}'">
+        <h3>Result not found</h3>
+        <h6>please enter the valid input</h6>
+      </ng-container> -->
+      <!-- <ng-container  *ngFor="let item of filterCategory  | filter: searchkey:'title'">
+        <div class="card col-md-3">
+          <img src="{{item.image}}" alt="">
+          <h5 style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" >{{item.title}}</h5>
+          <p style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+          <p><strong>Price:</strong>₹{{item.price}}</p>
+          <button class="btn btn-primary" (click)="addtocart(item)">Add cart</button>
+        </div>
+      </ng-container> -->
+  
+    </div>
+  </div>
+  
